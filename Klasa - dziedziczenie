@@ -1,0 +1,39 @@
+#Klasy - dziedziczenie
+#Klasa animal przyjmuje dwie dane do konstruktora oraz posiada dwie zmienne do których przypisuje te wartości
+
+class Animal:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+#Tworzymy klasy z dziedziczeniem
+#Podajemy klase w () z której dziedziczymy
+class Dog(Animal):
+#Rozbudowujemy klasę Dog o jej własne właściwości
+    def voice(self):
+        print("How How")
+
+class Pig(Dog):
+    def getVoice(self):
+        print("I am a little Pig")
+        super().voice() #super podobne do self; szukaa w klasach bazowych metod jakie podajemy,
+
+
+class Cat(Animal):
+    def getVoice(self):
+        print("Meow, Meow")
+
+dog = Dog("Reksio", 2)
+print(dog.name)
+print(dog.age)
+dog.voice() #Posiada już funkcję print
+
+cat = Cat("Bucia", 3)
+cat.getVoice()
+print(cat.name)
+print(cat.age)
+
+pig = Pig("Matylda", 10)
+pig.getVoice()
+print(pig.name)
+print(pig.age)
