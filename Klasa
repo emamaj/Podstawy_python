@@ -1,0 +1,23 @@
+#Tworzenie podstawowej klasy / definiujemy klase
+
+class Czlowiek:
+#Tworzenie specjalnej metody, pozwala nam zmienić domyślny konstruktor, dane wejściowe dla danego obiektu
+    def __init__(self, imie, wiek):
+
+#Tworzenie zmiennych w sposób globalny
+        self.imie = imie
+        self.wiek = wiek
+
+#Tworzymy metodę funkcji
+    def przedstawsie(self, powitanie = "Helko"):
+        return powitanie + " mam na imię " + self.imie + " lat " + str(self.wiek)
+
+#Tworzymy obiekt
+
+obiekt = Czlowiek("Basia", 24)
+print(obiekt.imie)
+print(obiekt.przedstawsie("Yo!"))
+
+obiekt2 = Czlowiek("Wiesia", 6)
+obiekt2.imie = "Wiesia"
+print(obiekt2.przedstawsie())
