@@ -1,0 +1,38 @@
+# Tworzenie klas z metodami magicznymi
+import math
+
+class Punkt2D: #bez nawiasu ponieważ nie chcemy dziedziczyć
+    def __init__(self, x, y): # tutaj własnie są metody magiczne. Mają specjalne zastosowanie. Wywoływana w momencie używania zwykłych operatorów
+        self.x = x
+        self.y = y
+        self.odleglosc = math.sqrt(x**2 + y**2)
+    def __add__(self, drugi):
+        return Punkt2D(self.x + drugi.x, self.y + drugi.y)
+
+    def __lt__(self, drugi): #mniejszy od
+        return self.odleglosc < drugi.odleglosc
+
+    def __eq__(self, drugi): #mniejsze bądź równe
+        return self.x == drugi.x and self.y == drugi.y
+
+    def __len__(self):
+        return int(round(self.odleglosc, 0))
+
+
+p1 = Punkt2D(2, 6)
+p2 = Punkt2D(4, 5)
+p3 = p1 + p2
+print(p3.x)
+print(p3.y)
+print(p1.odleglosc)
+print(p2.odleglosc)
+
+print(p3 < p2)
+
+
+print(p1 < p2) #sprawdzamy czy punkt p1 jest mniejszy od p2 (def __lt__
+
+print(p1 == p2)
+print(p2 == p2)
+print(len(p3))
+print(p3.odleglosc)
